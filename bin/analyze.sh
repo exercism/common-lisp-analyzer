@@ -1,7 +1,3 @@
-#!/usr/bin/env sh -e
+#!/bin/sh
 
-SLUG=$1
-DIR=$2
-
-echo '{"status": "refer_to_mentor", "comments": []}' > ${DIR}analysis.json
-
+sbcl --script ./src/analyze.lisp $1 $2
