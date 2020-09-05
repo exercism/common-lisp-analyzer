@@ -4,8 +4,8 @@
   (merge-pathnames (make-pathname :name "analysis" :type "lisp") directory))
 
 (defun main (&rest args)
-  (destructuring-bind ((slug directory)) args
-    (with-open-file (analysis-stream (analysis-file directory)
+  (destructuring-bind ((slug input-directory output-directory)) args
+    (with-open-file (analysis-stream (analysis-file output-directory)
                                      :direction :output
                                      :if-exists :supersede)
       (yason:encode-alist '(("status" . "refer_to_mentor")) analysis-stream))))
