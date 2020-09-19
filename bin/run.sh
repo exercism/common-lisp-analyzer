@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sbcl --script ./src/analyze.lisp $1 $2 $3
+bin/analyzer $1 $2 $3
