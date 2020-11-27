@@ -25,9 +25,5 @@ WORKDIR /opt/representer
 COPY --from=build /opt/analyzer/analyzer bin/
 COPY bin/run.sh bin/
 
-# Pull down the tooling connector binary and make it executable.
-ADD https://github.com/exercism/tooling-webserver/releases/latest/download/tooling_webserver /usr/local/bin
-RUN chmod +x /usr/local/bin/tooling_webserver
-
 # Set analyzer script as the ENTRYPOINT
 ENTRYPOINT ["bin/run.sh"]
