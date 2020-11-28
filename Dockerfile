@@ -14,20 +14,16 @@ RUN sbcl --script build/install-quicklisp.lisp
 
 # build the application
 COPY build/build.lisp build/
-COPY src quicklisp/local-projects/representer
+COPY src quicklisp/local-projects/analyzer
 RUN sbcl --script ./build/build.lisp
 
 ## Build the runtime image
 FROM alpine
-WORKDIR /opt/representer
+WORKDIR /opt/analyzer
 
-# Copy over the representer code
+# Copy over the analyzer code
 COPY --from=build /opt/analyzer/analyzer bin/
 COPY bin/run.sh bin/
-
-# Pull down the tooling connector binary and make it executable.
-ADD https://github.com/exercism/tooling-webserver/releases/latest/download/tooling_webserver /usr/local/bin
-RUN chmod +x /usr/local/bin/tooling_webserver
 
 # Set analyzer script as the ENTRYPOINT
 ENTRYPOINT ["bin/run.sh"]
