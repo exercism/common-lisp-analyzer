@@ -8,4 +8,4 @@
     (with-open-file (analysis-stream (analysis-file output-directory)
                                      :direction :output
                                      :if-exists :supersede)
-      (yason:encode-alist '(("status" . "refer_to_mentor")) analysis-stream))))
+      (yason:encode (make-hash-table) analysis-stream))))
