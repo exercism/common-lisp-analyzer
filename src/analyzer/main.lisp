@@ -8,4 +8,6 @@
     (with-open-file (analysis-stream (analysis-file output-directory)
                                      :direction :output
                                      :if-exists :supersede)
-      (yason:encode (make-hash-table) analysis-stream))))
+      (let ((analysis (make-hash-table :test #'equal)))
+        (setf (gethash "comments" analysis) #())
+        (yason:encode analysis analysis-stream)))))
