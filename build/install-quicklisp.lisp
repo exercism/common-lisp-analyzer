@@ -1,2 +1,2 @@
-(load "./src/quicklisp.lisp")
-(quicklisp-quickstart:install)
+(load "./build/quicklisp.lisp")
+(quicklisp-quickstart:install )
