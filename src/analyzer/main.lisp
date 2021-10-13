@@ -1,4 +1,4 @@
-(in-package #:analyzer/main)
+(in-package :analyzer/main)
 
 (defun analysis-file (directory)
   (merge-pathnames (make-pathname :name "analysis" :type "json") directory))
