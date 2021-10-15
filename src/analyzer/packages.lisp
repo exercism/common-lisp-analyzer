@@ -1,3 +1,3 @@
-(defpackage #:analyzer/main
-  (:use #:cl)
-  (:export #:main))
+(defpackage :analyzer/main
+  (:use :cl)
+  (:export :main))
