@@ -9,8 +9,8 @@ image=`docker build -q .`
 docker run \
        --network none \
        --read-only \
-       --mount type=bind,source=${input_dir},target=/input\
-       --mount type=bind,source=${output_dir},target=/output\
+       --mount type=bind,source=${input_dir},target=/input \
+       --mount type=bind,source=${output_dir},target=/output \
        --rm \
        -it $image $slug /input/ /output/
 
